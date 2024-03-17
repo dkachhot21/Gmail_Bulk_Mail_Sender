@@ -34,19 +34,20 @@ const transporter = nodemailer.createTransport({
 });
 
 // Function to send email
-const sendEmail = (to, subject, html) => {
+const sendEmail = (to, subject, html, data) => {
     const mailOptions = {
         from: process.env.EMAIL,
         to: to,
         subject: subject,
-        html: html
+        html: html,
+        data:data
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-            console.log('Error occurred:', error);
+            console.log('Error occurred:', data);
         } else {
-            console.log('Email sent:', info.response);
+            console.log('Email sent:*', data,"*",info.response);
         }
     });
 };
@@ -64,7 +65,7 @@ app.get('/sendEmails', (req, res) => {
                   <p>Regards,</p>
                   <p>Your Name</p>`; // Update 'Your Name' accordingly
 
-        sendEmail(to, subject, html);
+        sendEmail(to, subject, html, emailObj.data.details);
     });
 
     res.send('Emails sent successfully');
