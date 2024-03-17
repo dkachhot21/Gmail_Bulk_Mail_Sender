@@ -65,4 +65,6 @@ Follow the steps below to set up the project and obtain the required credentials
 
 - Keep your OAuth2 credentials and refresh token secure. Do not expose them in public repositories or insecure environments.
 - Handle refresh token expiration gracefully in your application to ensure uninterrupted access to Gmail's services.
-
+- This project is only for Learning and development purposes and you should use dedicated marketing services to send bulk emails.
+- You also should note that however there is no publicly known limit for the count of sending mail but these mails should be kept under 500 per day according to Google's Gemini AI.
+!["Gemini Response"](gemini.jpg)
